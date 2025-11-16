@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinity Space Ball</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            background: #000;
+        }
+
+        #canvas-container {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 14px;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        #controls h3 {
+            margin-bottom: 10px;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        #controls ul {
+            list-style: none;
+            line-height: 1.8;
+        }
+
+        #controls li {
+            color: #fff;
+        }
+
+        .key {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin: 0 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container"></div>
+    <div id="controls">
+        <h3>🎮 Controls</h3>
+        <ul>
+            <li><span class="key">W</span> / <span class="key">↑</span> - Move Forward</li>
+            <li><span class="key">S</span> / <span class="key">↓</span> - Move Backward</li>
+            <li><span class="key">A</span> / <span class="key">←</span> - Move Left</li>
+            <li><span class="key">D</span> / <span class="key">→</span> - Move Right</li>
+            <li><span class="key">Space</span> - Move Up</li>
+            <li><span class="key">Shift</span> - Speed Boost / Move Down</li>
+            <li><span class="key">M</span> - Place Mark</li>
+            <li><span class="key">R</span> / <span class="key">Delete</span> - Remove Nearest Mark</li>
+            <li><span class="key">T</span> + <span class="key">1-9</span> - Teleport to Mark</li>
+            <li><span class="key">T</span> (double-tap) - Toggle Teleport Feature</li>
+            <li><span class="key">C</span> - Cycle Camera Mode</li>
+            <li><span class="key">V</span> - Toggle Mini-map</li>
+            <li><span class="key">B</span> - Start/Stop Recording</li>
+            <li><span class="key">X</span> - Toggle Recording Feature</li>
+            <li><span class="key">N</span> - Toggle Replay</li>
+            <li><span class="key">1-4</span> - Change Mark Type</li>
+            <li><span class="key">5-8</span> - Change Theme</li>
+            <li><span class="key">9</span> - Size Power-up</li>
+            <li><span class="key">0</span> - Speed Power-up</li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script>
+        // Error handling
+        window.addEventListener('error', function(e) {
+            console.error('Error:', e.message, e.filename, e.lineno);
+            document.body.innerHTML += '<div style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);color:red;background:white;padding:20px;z-index:10000;">Error loading: ' + e.message + '</div>';
+        });
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>
